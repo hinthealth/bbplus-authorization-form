@@ -6,7 +6,7 @@ may use to allow patients to configure their enrollment for BlueButton+ data
 transfer.
 
 A demo of this application is deployed at:
-https://bb-authorization-form-dot-healthio-dev.appspot.com/
+  https://bb-authorization-form-dot-healthio-dev.appspot.com/
 
 It supports the following features:
 - Addition of multiple Direct addresses per patients.
@@ -24,9 +24,11 @@ class is implemented, making it easily portable off of App Engine onto
 another platorm.
 
 To run a development server:
+
 1. Download the Google App Engine SDK
-2. Run ./utils/run.sh
+2. Run `./utils/run.sh`
 
 To deploy to App Engine:
+
 1. Create an application (or use an existing one) at http://appengine.google.com
-2. Run ./utils/deploy.sh --application=<app id>
+2. Run `./utils/deploy.sh --application=<app id>`
