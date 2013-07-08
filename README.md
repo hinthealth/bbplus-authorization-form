@@ -1,8 +1,8 @@
 bbplus-authorization-form
 =========================
 
-This project demonstrates a sample patient authorization form a provider
-may use to allow patients to configure their enrollment for BlueButton+ data
+This project demonstrates a reference implmenetation for a patient authorization form. A
+provider may use this form to allow patients to configure their enrollment for BlueButton+ data
 transfer.
 
 A demo of this application is deployed at:
