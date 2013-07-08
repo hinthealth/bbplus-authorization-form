@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="/static/main.css">
+<title>Sample BlueButton+ Patient Authorization</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<div class="main">
+
+  <h1>Sample BlueButton+ Patient Authorization</h1>
+
+  <section class="status notice" id="sample-notice">
+    <p>Take note! This is purely a sample implementation of a BlueButton+ Patient Authorization form. You are free to test the form and modify the settings, but this will <b>not</b> affect your settings with your real health providers.
+    <p>Health providers are encouraged to try this form to sample the user experience. The code behind this form is open source and available on GitHub. This form is powered by a Python Google App Engine program, making it easy for providers to spin up their own form or re-implement their own form based upon this implementation.
+    <p><span class="button" data-action="remove-notice">Okay, got it</span>
+  </section>
+
+  <header class="status">
+    {% if user %}
+      <p>
+        Welcome! You're signed in as <b>{{user.email()}}</b>.
+        <a role="button" href="{{logout_url}}" class="button button-red button-small">Sign out</a>
+    {% else %}
+      <p>
+        You're not signed in.
+      <p>
+        <a role="button" href="{{login_url}}" class="button button-red button-small">Sign in to manage your BlueButton+ data delivery options</a>
+    {% endif %}
+  </header>
+
+  {% if request.method == "POST" %}
+    <section class="status">
+      <p>Your settings have been saved.
+    </section>
+  {% endif %}
+
+  {% if user %}
+  <form class="form-direct-addresses" action="/api/add_direct_address" method="post">
+    <h2>Direct addresses</h2>
+    <p>Your health information will be sent to the following Direct addresses.</p>
+    {% if patient.get_direct_addresses() %}
+      <ol class="direct-addresses">
+        {% for direct_address in patient.get_direct_addresses() %}
+        <li>
+          <div>
+            <span class="address">{{direct_address}}</span>
+            <span class="x" data-action="remove-direct-address" data-value="{{direct_address}}">×</span>
+          </div>
+        {% endfor %}
+      </ol>
+    {% else %}
+      <section class="status warning">
+        <p>You have not added any Direct addresses. Add a Direct address in order to receive your health information.
+      </section>
+    {% endif %}
+    <input type="text" name="direct_address" tabindex="-1">
+    <div class="button button-small" role="button" tabindex="-1">Add a Direct address</div>
+  </form>
+
+  {% set frequency = patient.to_message().frequency %}
+  <form class="form-frequency" action="/api/update_frequency" method="post">
+    <h2>Frequency</h2>
+    <p>Choose how frequently to send your health information to your Direct addresses.</p>
+    <label>
+      <input type="radio" name="frequency" value="NONE"
+      {% if not frequency or frequency == Frequency.NONE %}checked{% endif %}
+      >Do not send any health information
+    </label>
+    <label>
+      <input type="radio" name="frequency" value="SINGLE"
+      {% if frequency == Frequency.SINGLE %}checked{% endif %}
+      >Send a single one-time push of health information
+    </label>
+    <label>
+      <input type="radio" name="frequency" value="CONTINUOUS"
+      {% if frequency == Frequency.CONTINUOUS %}checked{% endif %}
+      >Continually push health information whenever it changes
+    </label>
+    <p>
+    <div class="button" role="button" data-action="save-frequency">Save</div>
+  {% endif %}
+</div>
+
+<script src="/static/main.js"></script>
+<script>
+  bbform.init();
+</script>

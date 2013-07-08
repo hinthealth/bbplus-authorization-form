@@ -1,0 +1,162 @@
+@import url(//fonts.googleapis.com/css?family=Open+Sans:regular,regularitalic,bold);
+
+/* Basic styles. */
+
+body {
+  color: #34495e;
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 300;
+  margin-bottom: 50px;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 500;
+}
+
+.main {
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 0 25px;
+}
+
+input[type=text] {
+  border-radius: 5px;
+  border: 2px solid #bdc3c7;
+  box-sizing: border-box;
+  color: #34495e;
+  font-size: 14px;
+  min-width: 300px;
+  padding: 8px 5px;
+  text-indent: 6px;
+}
+
+input[type=text]:focus {
+  outline: none;
+  border-color: #49afcd;
+}
+
+/* Buttons. */
+
+.button {
+  background: #3498db;
+  border-bottom: 2px solid #2f96b4;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  padding: 8px 20px 6px;
+  text-decoration: none;
+  transition: 0.25s;
+  vertical-align: middle;
+}
+
+.button:hover {
+  background: #5dade2;
+}
+
+.button.button-red {
+  background: #C0392B;
+  border-bottom: 2px solid #D35400;
+}
+
+.button.button-red:hover {
+  background: #E74C3C;
+}
+
+.button.button-small {
+  padding: 5px 15px 3px;
+  font-size: 12px;
+}
+
+/* Section. */
+
+section.status {
+  background: #2ECC71;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: bold;
+  margin: 10px 0 0 0;
+  padding: 5px 10px;
+  text-align: center;
+}
+
+section.warning {
+  background: #F1C40F;
+  color: #2C3E50;
+  font-weight: normal;
+  margin-bottom: 15px;
+}
+
+section.notice {
+  background: #eff0f2;
+  color: #2C3E50;
+  font-size: 13px;
+  font-weight: normal;
+  margin-bottom: 15px;
+  padding: 5px 20px;
+  text-align: left;
+}
+
+/* Header. */
+
+header {
+  background: #eff0f2;
+  border-radius: 5px;
+  padding: 5px 10px;
+  text-align: center;
+}
+
+header .button {
+  margin: 0 10px;
+}
+
+/* Direct addresses. */
+
+.direct-addresses div {
+  background: #eff0f2;
+  border-radius: 5px;
+  display: inline-block;
+  font-weight: normal;
+  overflow: hidden;
+}
+
+.direct-addresses li {
+  margin-bottom: 3px;
+}
+
+.direct-addresses span.address {
+  display: inline-block;
+  padding: 5px 10px;
+}
+
+.direct-addresses span.x {
+  background: #34495e;
+  display: inline-block;
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 4px 10px;
+}
+
+/* Form. */
+
+form input[type=radio] {
+  margin-right: 10px;
+}
+
+label {
+  display: block;
+  font-weight: 500;
+  vertical-align: middle;
+  padding: 6px 0;
+  margin-left: 15px;
+}
+
+form p {
+  font-size: 13px;
+}
