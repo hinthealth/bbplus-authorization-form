@@ -59,8 +59,9 @@ class DbStorage(BaseStorage):
     else:
       body.append('You have registered the following Direct addresses:')
       body.extend(addresses)
+      body.append('\n')
     frequency = self.get_message().frequency
-    body.append('\nYour data push frequency is:')
+    body.append('Your data push frequency is:')
     body.append(str(frequency))
     body = '\n'.join(body)
     mail.send_mail(SENDER, self.email, subject, body)

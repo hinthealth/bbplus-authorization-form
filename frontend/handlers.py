@@ -30,6 +30,7 @@ class BaseHandler(webapp2.RequestHandler):
         'login_url': users.create_login_url(self.request.path),
         'logout_url': users.create_logout_url(self.request.path),
         'request': self.request,
+        'show_notice': self.request.cookies.get('hide_notice') != '1',
         'user': self.user,
     })
     if self.user:

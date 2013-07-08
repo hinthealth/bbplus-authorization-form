@@ -5,13 +5,15 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <div class="main">
 
-  <h1>Sample BlueButton+ Patient Authorization</h1>
+  <h1>BlueButton+ Patient Authorization Form Reference Implementation</h1>
 
-  <section class="status notice" id="sample-notice">
-    <p>Take note! This is purely a sample implementation of a BlueButton+ Patient Authorization form. You are free to test the form and modify the settings, but this will <b>not</b> affect your settings with your real health providers.
-    <p>Health providers are encouraged to try this form to sample the user experience. The code behind this form is open source and <a href="https://github.com/healthio/bbplus-authorization-form">available on GitHub</a>. This form is powered by a Python Google App Engine program, making it easy for providers to spin up their own form or re-implement their own form based upon this implementation.
-    <p><span class="button" data-action="remove-notice">Okay, got it</span>
-  </section>
+  {% if show_notice %}
+    <section class="status notice" id="sample-notice">
+      <p>Take note! This is purely a reference implementation of a BlueButton+ Patient Authorization form. You are free to test the form and modify the settings, but this will <b>not</b> affect your settings with your real health providers.
+      <p>Health providers are encouraged to try this form to sample the user experience. The code behind this form is open source and <a href="https://github.com/healthio/bbplus-authorization-form">available on GitHub</a>. This form is powered by a Python Google App Engine program, making it easy for providers to spin up their own form or re-implement their own form based upon this implementation.
+      <p><span class="button" data-action="remove-notice">Okay, got it</span>
+    </section>
+  {% endif %}
 
   <header class="status">
     {% if user %}
@@ -52,7 +54,7 @@
       </section>
     {% endif %}
     <input type="text" name="direct_address" tabindex="-1">
-    <div class="button button-small" role="button" tabindex="-1">Add a Direct address</div>
+    <div class="button button-small" role="button" tabindex="-1" data-action="add-direct-address">Add a Direct address</div>
   </form>
 
   {% set frequency = patient.to_message().frequency %}

@@ -10,8 +10,10 @@ var bbform = bbform || {};
  */
 bbform.setNoticeEnabled = function(enabled) {
   if (enabled) {
+    document.cookie = 'hide_notice=0';
     $('#sample-notice').fadeIn(550);
   } else {
+    document.cookie = 'hide_notice=1';
     $('#sample-notice').fadeOut(550);
   }
 };
@@ -30,6 +32,27 @@ bbform.saveFrequency = function(frequency) {
     },
     'error': function(e) {
       alert('An error occurred saving.');
+    },
+    'success': function(e) {
+      window.location = window.location.href = '/?saved';
+    },
+  });
+};
+
+
+/**
+ * Sends an RPC to add a direct address.
+ * @param {string} directAddress Direct address to add.
+ */
+bbform.addDirectAddress = function(directAddress) {
+  $.ajax({
+    'url': '/api/add_direct_address',
+    'type': 'POST',
+    'data': {
+      'direct_address': directAddress
+    },
+    'error': function(e) {
+      alert('An error occurred adding this Direct address.');
     },
     'success': function(e) {
       window.location = window.location.href = '/?saved';
@@ -68,6 +91,8 @@ bbform.onWindowClick_ = function(e) {
   };
   switch(e.target.getAttribute('data-action')) {
     case 'add-direct-address':
+      var address = $('input[name="direct_address"]').val();
+      bbform.addDirectAddress(address);
       break;
     case 'remove-direct-address':
       bbform.removeDirectAddress(e.target.getAttribute('data-value'));
