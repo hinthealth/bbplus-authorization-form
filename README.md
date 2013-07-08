@@ -5,6 +5,9 @@ This project demonstrates a sample patient authorization form a provider
 may use to allow patients to configure their enrollment for BlueButton+ data
 transfer.
 
+A demo of this application is deployed at:
+https://bb-authorization-form-dot-healthio-dev.appspot.com/
+
 It supports the following features:
 - Addition of multiple Direct addresses per patients.
 - Email notifications upon changing frequency settings.
