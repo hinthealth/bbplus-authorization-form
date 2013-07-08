@@ -1,4 +1,4 @@
-"""Request handlers for the App Engine application."""
+"""Request handlers for the WSGI application."""
 
 from backend import patient
 from google.appengine.api import users
@@ -53,27 +53,28 @@ class AddDirectAddressHandler(BaseHandler):
 
   def post(self):
     if not self.user:
-      raise Exception
+      self.abort(400)
     patient_obj = patient.Patient(self.user.email())
     patient_obj.add_direct_address(self.request.POST['direct_address'])
-    self.redirect('/')
+    self.redirect('/?saved')
 
 
 class RemoveDirectAddressHandler(BaseHandler):
 
   def post(self):
     if not self.user:
-      raise Exception
+      self.abort(400)
     patient_obj = patient.Patient(self.user.email())
     patient_obj.remove_direct_address(self.request.POST['direct_address'])
-    self.redirect('/')
+    self.redirect('/?saved')
 
 
 class UpdateFrequencyHandler(BaseHandler):
 
   def post(self):
     if not self.user:
-      raise Exception
+      self.abort(400)
     patient_obj = patient.Patient(self.user.email())
     patient_obj.set_frequency(self.request.POST['frequency'])
-    self.redirect('/')
+    patient_obj.send_email_notification()
+    self.redirect('/?saved')

@@ -29,10 +29,10 @@ bbform.saveFrequency = function(frequency) {
       'frequency': frequency
     },
     'error': function(e) {
-      window.console.log(e);
+      alert('An error occurred saving.');
     },
     'success': function(e) {
-      window.console.log(e);
+      window.location = window.location.href = '/?saved';
     },
   });
 };
@@ -50,10 +50,10 @@ bbform.removeDirectAddress = function(directAddress) {
       'direct_address': directAddress
     },
     'error': function(e) {
-      window.console.log(e);
+      alert('An error occurred removing this Direct address.');
     },
     'success': function(e) {
-      window.console.log(e);
+      window.location = window.location.href = '/?saved';
     },
   });
 };
