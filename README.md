@@ -26,7 +26,8 @@ another platorm.
 To run a development server:
 
 1. Download the [Google App Engine SDK for Python](https://developers.google.com/appengine/downloads)
-2. Run `./utils/run.sh`
+2. Run `pip install -r requirements.txt` to install dependencies.
+3. Run `./utils/run.sh`
 
 To deploy to App Engine:
 
