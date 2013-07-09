@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <link rel="stylesheet" href="/static/main.css">
-<title>Sample BlueButton+ Patient Authorization</title>
+<title>Sample Blue Button+ Patient Authorization</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <div class="main">
 
-  <h1>BlueButton+ Patient Authorization Form Reference Implementation</h1>
+  <img src="/static/bluebutton_icon_whitebg_90x90h.jpg" alt="Blue Button logo" style="float: right; margin-left: 15px;">
+  <h1>Blue Button+ Patient Authorization Form Reference Implementation</h1>
 
   {% if show_notice %}
     <section class="status notice" id="sample-notice">
-      <p>Take note! This is purely a reference implementation of a BlueButton+ Patient Authorization form. You are free to test the form and modify the settings, but this will <b>not</b> affect your settings with your real health providers.
+      <p>Take note! This is purely a reference implementation of a Blue Button+ Patient Authorization form. You are free to test the form and modify the settings, but this will <b>not</b> affect your settings with your real health providers.
       <p>Health providers are encouraged to try this form to sample the user experience. The code behind this form is open source and <a href="https://github.com/healthio/bbplus-authorization-form">available on GitHub</a>. This form is powered by a Python Google App Engine program, making it easy for providers to spin up their own form or re-implement their own form based upon this implementation.
       <p><span class="button" data-action="remove-notice">Okay, got it</span>
     </section>
@@ -24,7 +25,7 @@
       <p>
         You're not signed in.
       <p>
-        <a role="button" href="{{login_url}}" class="button button-red button-small">Sign in to manage your BlueButton+ data delivery options</a>
+        <a role="button" href="{{login_url}}" class="button button-red button-small">Sign in to manage your Blue Button+ data delivery options</a>
     {% endif %}
   </header>
 
@@ -79,6 +80,10 @@
     <p>
     <div class="button" role="button" data-action="save-frequency">Save</div>
   {% endif %}
+
+  <p class="disclaimer">
+    The Blue Button Service Mark is owned by the U.S. Department of Health and Human Services (HHS).
+  </p>
 </div>
 
 <script src="/static/main.js"></script>

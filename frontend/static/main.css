@@ -28,6 +28,7 @@ input[type=text] {
   box-sizing: border-box;
   color: #34495e;
   font-size: 14px;
+  margin-bottom: 5px;
   min-width: 300px;
   padding: 8px 5px;
   text-indent: 6px;
@@ -159,4 +160,8 @@ label {
 
 form p {
   font-size: 13px;
+}
+
+p.disclaimer {
+  margin: 30px 0;
 }
